@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+<div id="demo" style="text-align:center">
+<h1 style="text-align: center">Calculator</h1>
+
+<form action="" style="text-align:center">
+<input type="number" id="number1"  style="text-align:center">
+
+<select id="operator">
+  <option value='add'>+</option>
+  <option value='minus'>-</option>
+  <option value='multiply'>*</option>
+  <option value='divide'>/</option>
+</select>
+
+<input type="number" id="number2"name="number1" style="text-align:center">
+</form>
+
+<button type="button" onclick="loadDoc()" style="text-align:center">submit</button>
+</div>
+
+<script>
+    function loadDoc() {
+        
+        $.ajax({
+            type: "GET",
+            url: 'test.php',
+            data: { Rfunction: document.getElementById("operator").value, number1: document.getElementById('number1').value, number2: document.getElementById('number2').value },
+
+            success: function (data) {
+                alert(data);
+            }
+        });
+    }
+
+
+</script>
+
+</body>
+</html>
